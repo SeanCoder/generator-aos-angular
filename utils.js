@@ -45,7 +45,8 @@ exports.processTemplates = function(name,dir,type,that,defaultDir,configName,mod
     }
     _.chain(fs.readdirSync(templateDirectory))
         .filter(function(template){
-            return template[0] !== '.';
+            var css = that.config.sass ? '.scss' : '.less';
+            return template[0] !== '.' && template.indexOf(css) === -1;
         })
         .each(function(template){
             var customTemplateName = template.replace(type,name);
