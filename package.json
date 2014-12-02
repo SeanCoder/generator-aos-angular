@@ -22,11 +22,14 @@
     "test": "mocha"
   },
   "dependencies": {
+    "chalk": "~0.4.0",
+    "fs": "0.0.2",
+    "ng-parse-module": "~0.1.0",
+    "path": "^0.4.9",
     "underscore": "~1.5",
     "underscore.string": "~2.3",
-    "yeoman-generator": "~0.16",
-    "chalk": "~0.4.0",
-    "ng-parse-module": "~0.1.0"
+    "util": "^0.10.3",
+    "yeoman-generator": "~0.16"
   },
   "devDependencies": {
     "mocha": "~1.10.0"

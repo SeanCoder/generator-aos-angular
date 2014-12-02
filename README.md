@@ -1,6 +1,8 @@
-#generator-cg-angular
+#generator-jb-angular
 
 >Yeoman Generator for Enterprise Angular Projects
+
+This is a fork of generator-cg-angular with added SASS and coverage support. It also defaults to using SASS and ui-router.
 
 This generator follows the [Angular Best Practice Guidelines for Project Structure](http://blog.angularjs.org/2014/02/an-angularjs-style-guide-and-best.html).
 
