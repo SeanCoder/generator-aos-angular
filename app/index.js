@@ -69,7 +69,7 @@ CgangularGenerator.prototype.askForUiRouter = function askFor() {
         name: 'router',
         type:'list',
         message: 'Which router would you like to use?',
-        default: 0,
+        default: 1,
         choices: ['Standard Angular Router','Angular UI Router']
     }];
 
@@ -97,7 +97,7 @@ CgangularGenerator.prototype.askForSass = function askFor () {
     name:'sass',
     type:'confirm',
     message: 'Do you want to use SASS?',
-    default:false
+    default:true
   }];
 
   this.prompt(prompts, function(props) {
