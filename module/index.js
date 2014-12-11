@@ -55,6 +55,8 @@ ModuleGenerator.prototype.askFor = function askFor() {
 };
 
 ModuleGenerator.prototype.files = function files() {
+    var appname = require(process.cwd()+'/package.json').name;
+    this.name = appname + '.' + this.name;
 
     var module = cgUtils.getParentModule(path.join(this.dir,'..'));
     module.dependencies.modules.push(_.camelize(this.name));
