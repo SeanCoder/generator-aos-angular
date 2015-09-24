@@ -27,7 +27,7 @@ ModalGenerator.prototype.askFor = function askFor() {
 
     this.prompt(prompts, function (props) {
         if (props.name){
-            this.name = cgUtils.prefixName(props.name);
+            this.name = props.name;
         }
         cgUtils.askForModuleAndDir('modal',this,true,cb);
     }.bind(this));
