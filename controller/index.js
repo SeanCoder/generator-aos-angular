@@ -10,7 +10,7 @@ var fs = require('fs');
 _.str = require('underscore.string');
 _.mixin(_.str.exports());
 
-var FilterGenerator = module.exports = function FilterGenerator(args, options, config) {
+var ControllerGenerator = module.exports = function ControllerGenerator(args, options, config) {
 
     cgUtils.getNameArg(this, args);
 
@@ -18,27 +18,27 @@ var FilterGenerator = module.exports = function FilterGenerator(args, options, c
 
 };
 
-util.inherits(FilterGenerator, yeoman.generators.Base);
+util.inherits(ControllerGenerator, yeoman.generators.Base);
 
-FilterGenerator.prototype.askFor = function askFor() {
+ControllerGenerator.prototype.askFor = function askFor() {
     var cb = this.async();
 
     var prompts = [];
 
-    cgUtils.addNamePrompt(this, prompts, 'filter');
+    cgUtils.addNamePrompt(this, prompts, 'controller');
 
     this.prompt(prompts, function (props) {
         if (props.name) {
             this.name = cgUtils.prefixName(props.name);
         }
-        cgUtils.askForModuleAndDir('filter', this, false, cb);
+        cgUtils.askForModuleAndDir('controller', this, false, cb);
     }.bind(this));
 
 
 };
 
-FilterGenerator.prototype.files = function files() {
+ControllerGenerator.prototype.files = function files() {
 
-    cgUtils.processTemplates(this.name, this.dir, 'filter', this, null, null, this.module);
+    cgUtils.processTemplates(this.name, this.dir, 'controller', this, null, null, this.module);
 
 };

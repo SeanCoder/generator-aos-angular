@@ -1,7 +1,14 @@
-angular.module('<%= appname %>').directive('<%= _.camelize(name) %>', function() {
+/**
+ * @ngdoc directive
+ * @name <%= _.camelize(name) %>
+ *
+ * @description
+ * TODO - Complete this description with full details about this directive.
+ */
+angular.module('<%= appname %>').directive('<%= _.camelize(name) %>', function () {
     return {
         restrict: 'A',
-        link: function(scope, element, attrs, fn) {
+        link: function (scope, element, attrs, fn) {
 
 
         }

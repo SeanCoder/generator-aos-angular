@@ -8,41 +8,44 @@ var CgangularGenerator = module.exports = function CgangularGenerator(args, opti
     yeoman.generators.Base.apply(this, arguments);
 
     this.on('end', function () {
-        this.config.set('partialDirectory','partial/');
-        this.config.set('modalDirectory','partial/');
-        this.config.set('directiveDirectory','directive/');
-        this.config.set('filterDirectory','filter/');
-        this.config.set('serviceDirectory','service/');
+        this.config.set('partialDirectory', 'partial/');
+        this.config.set('modalDirectory', 'partial/');
+        this.config.set('directiveDirectory', 'directive/');
+        this.config.set('filterDirectory', 'filter/');
+        this.config.set('serviceDirectory', 'service/');
         var inject = {
             js: {
-                file: 'index.html',
+                file: path.join(cgUtils.ROOT_DIRECTORY, 'index.html'),
                 marker: cgUtils.JS_MARKER,
                 template: '<script src="<%= filename %>"></script>'
             }
         };
 
-        if(this.config.get('sass')) {
-          inject.scss = {
-            relativeToModule: true,
-            file: '<%= module %>.scss',
-            marker: cgUtils.SASS_MARKER,
-            template: '@import "<%= filename %>";'
-          };
+        if (this.config.get('sass')) {
+            inject.scss = {
+                relativeToModule: true,
+                file: '<%= module %>.scss',
+                marker: cgUtils.SASS_MARKER,
+                template: '@import "<%= filename %>";'
+            };
         } else {
-          inject.less = {
-            relativeToModule: true,
-            file: '<%= module %>.less',
-            marker: cgUtils.LESS_MARKER,
-            template: '@import "<%= filename %>";'
-          };
+            inject.less = {
+                relativeToModule: true,
+                file: '<%= module %>.less',
+                marker: cgUtils.LESS_MARKER,
+                template: '@import "<%= filename %>";'
+            };
         }
 
-        this.config.set('inject',inject);
+        this.config.set('inject', inject);
         this.config.save();
-        this.installDependencies({ skipInstall: options['skip-install'] });
+        this.installDependencies({skipInstall: options['skip-install']});
     });
 
     this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
+
+    this.sass = true;
+    this.config.set('sass', this.sass);
 };
 
 util.inherits(CgangularGenerator, yeoman.generators.Base);
@@ -57,7 +60,7 @@ CgangularGenerator.prototype.askFor = function askFor() {
     }];
 
     this.prompt(prompts, function (props) {
-        this.appname = props.appname;
+        this.appname = this._.camelize(this._.slugify(this._.humanize(this.appname)));
         cb();
     }.bind(this));
 };
@@ -65,13 +68,22 @@ CgangularGenerator.prototype.askFor = function askFor() {
 CgangularGenerator.prototype.askForUiRouter = function askFor() {
     var cb = this.async();
 
-    var prompts = [{
-        name: 'router',
-        type:'list',
-        message: 'Which router would you like to use?',
-        default: 1,
-        choices: ['Standard Angular Router','Angular UI Router']
-    }];
+    var prompts = [
+        {
+            name: 'router',
+            type: 'list',
+            message: 'Which router would you like to use?',
+            default: 1,
+            choices: ['Standard Angular Router', 'Angular UI Router']
+        },
+        {
+            name: 'prefix',
+            message: 'Prefix to add to all names?',
+            default: cgUtils.PREFIX,
+            validate: function (input) {
+                return true;
+            }
+        }];
 
     this.prompt(prompts, function (props) {
         if (props.router === 'Angular UI Router') {
@@ -85,28 +97,13 @@ CgangularGenerator.prototype.askForUiRouter = function askFor() {
             this.routerModuleName = 'ngRoute';
             this.routerViewDirective = 'ng-view';
         }
-        this.config.set('uirouter',this.uirouter);
+        this.prefix = props.prefix;
+        this.config.set('uirouter', this.uirouter);
+        this.config.set('prefix', this.prefix);
         cb();
     }.bind(this));
 };
 
-CgangularGenerator.prototype.askForSass = function askFor () {
-  var cb = this.async();
-
-  var prompts = [{
-    name:'sass',
-    type:'confirm',
-    message: 'Do you want to use SASS?',
-    default:true
-  }];
-
-  this.prompt(prompts, function(props) {
-    this.sass = props.sass;
-    this.config.set('sass', this.sass);
-    cb();
-  }.bind(this));
-};
-
 CgangularGenerator.prototype.app = function app() {
-    this.directory('skeleton/','./');
+    this.directory('skeleton/', './');
 };

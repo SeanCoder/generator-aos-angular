@@ -47,9 +47,9 @@ ModuleGenerator.prototype.askFor = function askFor() {
 
     this.prompt(prompts, function (props) {
         if (props.name){
-            this.name = props.name;
-        }        
-        this.dir = path.join(props.dir,'/');
+            this.name = cgUtils.prefixName(props.name);
+        }
+        this.dir = path.join(cgUtils.ROOT_SCRIPTS_DIRECTORY, props.dir,'/');
         cb();
     }.bind(this));
 };
@@ -58,18 +58,20 @@ ModuleGenerator.prototype.files = function files() {
     var appname = require(process.cwd()+'/package.json').name;
     this.name = appname + '.' + this.name;
 
+
     var module = cgUtils.getParentModule(path.join(this.dir,'..'));
     module.dependencies.modules.push(_.camelize(this.name));
     module.save();
     this.log.writeln(chalk.green(' updating') + ' %s',path.basename(module.file));
 
-    cgUtils.processTemplates(this.name,this.dir,'module',this,null,null,module);
+    var type = 'module';
+    cgUtils.processTemplates(this.name,this.dir,type,this,null,null,module);
 
     var modules = this.config.get('modules');
     if (!modules) {
         modules = [];
     }
-    modules.push({name:_.camelize(this.name),file:path.join(this.dir,this.name + '.js')});
+    modules.push({name:_.camelize(this.name),file:path.join(this.dir,this.name + '.' + type + '.js')});
     this.config.set('modules',modules);
     this.config.save();
 };
