@@ -1,11 +1,11 @@
 /**
  * @ngdoc controller
- * @name <%= name %>
+ * @name <%= appname %>.<%= codeName %>
  *
  * @description
  * TODO - Complete this description with full details about this controller.
  */
-angular.module('<%= appname %>').controller('<%= name %>', function ($scope) {
+angular.module('<%= appname %>').controller('<%= codeName %>', function ($scope) {
 
 
 });

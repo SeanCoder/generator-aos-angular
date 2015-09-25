@@ -29,7 +29,7 @@ ControllerGenerator.prototype.askFor = function askFor() {
 
     this.prompt(prompts, function (props) {
         if (props.name) {
-            this.name = cgUtils.prefixName(props.name);
+            this.name = props.name;
         }
         cgUtils.askForModuleAndDir('controller', this, false, cb);
     }.bind(this));
@@ -38,6 +38,9 @@ ControllerGenerator.prototype.askFor = function askFor() {
 };
 
 ControllerGenerator.prototype.files = function files() {
+
+    this.name = cgUtils.createName(this, this.name);
+    this.codeName = this.name + 'Ctrl';
 
     cgUtils.processTemplates(this.name, this.dir, 'controller', this, null, null, this.module);
 

@@ -41,6 +41,6 @@ ServiceGenerator.prototype.files = function files() {
     this.name = cgUtils.createName(this, this.name);
     this.codeName = this.name;
 
-    cgUtils.processTemplates(this.name, this.dir, 'service', this, null, null, this.module);
+    cgUtils.processTemplates(this.name, this.dir, 'factory', this, null, null, this.module);
 
 };

@@ -51,7 +51,7 @@ DirectiveGenerator.prototype.files = function files() {
     }
 
     this.name = cgUtils.createName(this, this.name);
-    this.codeName = this.name;
+    this.codeName = name + 'Directive';
     this.className = cgUtils.createClassName(this, this.name);
     this.elementName = cgUtils.createElementName(this, this.name);
     this.htmlPath = path.join(this.dir, cgUtils.createFilename(this, this.name, 'directive', 'html')).replace(/\\/g, '/').substring(cgUtils.ROOT_DIRECTORY.length);

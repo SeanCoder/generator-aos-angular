@@ -1,12 +1,12 @@
-describe('<%= ctrlname %>', function() {
+describe('<%= codeName %>', function() {
 
-    beforeEach(module('<%= appname %>'));
+    beforeEach(module('templates', '<%= appname %>'));
 
     var scope,ctrl;
 
     beforeEach(inject(function($rootScope, $controller) {
       scope = $rootScope.$new();
-      ctrl = $controller('<%= ctrlname %>', {$scope: scope});
+      ctrl = $controller('<%= codeName %>', {$scope: scope});
     }));
 
     it('should ...', inject(function() {

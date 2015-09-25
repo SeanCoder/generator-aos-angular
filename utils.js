@@ -9,7 +9,7 @@ var finder = require('find-files');
 
 
 exports.JS_MARKER = "<!-- Add New Component JS Above -->";
-exports.PREFIX = "";
+exports.PREFIX = "dell";
 exports.LESS_MARKER = "/* Add Component LESS Above */";
 exports.SASS_MARKER = "/* Add Component SASS Above */";
 
@@ -36,6 +36,15 @@ exports.addToFile = function (filename, lineToAdd, beforeMarker) {
     }
 };
 
+exports.createFilename = function (that, name, type, optExtension) {
+    var name = [_.str.dasherize(name), type.toLowerCase()];
+    if (optExtension && optExtension.length) {
+        name.push(optExtension);
+    }
+
+    return name.join('.');
+};
+
 exports.processTemplates = function (name, dir, type, that, defaultDir, configName, module) {
 
     if (!defaultDir) {
@@ -55,7 +64,7 @@ exports.processTemplates = function (name, dir, type, that, defaultDir, configNa
             return template[0] !== '.' && template.indexOf(css) === -1;
         })
         .each(function (template) {
-            var filename = name + '.' + type;
+            var filename = exports.createFilename(that, name, type);
             var customTemplateName = template.replace(type, filename);
             var templateFile = path.join(templateDirectory, template);
             //create the file
@@ -186,8 +195,9 @@ exports.askForDir = function (type, that, module, ownDir, cb) {
 
     that.log.writeln('The dir is ' + that.dir);
 
+    var useTypeDirs = that.config.get('useTypeDirectories');
     var defaultDir = '';
-    if (module.primary) {
+    if (module.primary || useTypeDirs) {
         var configedDir = that.config.get(type + 'Directory');
         if (!configedDir) {
             configedDir = '.';
@@ -329,11 +339,41 @@ exports.rebuildConfiguration = function (that) {
     }
 };
 
-exports.prefixName = function (that, name) {
-    if (name && name.length) {
+exports.createName = function (that, name, ignorePrefix) {
+    var prefix = '';
+    if (!ignorePrefix) {
         var prefix = that.config.get('prefix') || exports.PREFIX;
-        name = prefix + name;
+        prefix = prefix.toLowerCase() + ' ';
+        that.log.writeln('Using prefix ' + prefix);
     }
+    name = prefix + name;
 
+    return _.str.camelize(name);
+};
+
+exports.createClassName = function (that, name) {
     return name;
+};
+
+exports.createElementName = function (that, name) {
+    return _.dasherize(name)
+};
+
+exports.createModuleName = function (that, appname, dir, name) {
+    // Get rid of duplicates
+    var nameLowercase = name.toLowerCase();
+    dir = dir.replace(/\\/g, '/').replace(/[\/]{2,}/g, "/");
+    var dirNames = _.filter(dir.split('/'), function (item) {
+        if (!item || !item.length) {
+            return false;
+        }
+        var itemLowercase = item.toLowerCase();
+        return (itemLowercase !== nameLowercase && itemLowercase !== 'app' && itemLowercase !== 'scripts')
+    });
+
+    if (dirNames && dirNames.length) {
+        return appname + '.' + dirNames.join('.') + '.' + name;
+    } else {
+        return appname + '.' + name;
+    }
 };

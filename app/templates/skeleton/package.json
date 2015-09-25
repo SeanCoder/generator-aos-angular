@@ -25,11 +25,20 @@
         "grunt-svgmin": "^2.0.0",
         "grunt-usemin": "^3.0.0",
         "grunt-wiredep": "^2.0.0",
+        "karma-ng-html2js-preprocessor": "*",
+        "ng-html2js": "*",
+        "jasmine": "^2.3.2",
         "jit-grunt": "^0.9.1",
         "jshint-stylish": "^1.0.0",
+        "karma": "*",
+        "karma-coverage": "^0.2.1",
         "karma-jasmine": "*",
         "karma-phantomjs-launcher": "*",
-        "time-grunt": "^1.0.0"
+        "karma-firefox-launcher": "*",
+        "karma-chrome-launcher": "*",
+        "time-grunt": "^1.0.0",
+        "grunt-angular-localization": "^1.0.1",
+        "phantomjs": "*"
     },
     "engines": {
         "node": ">=0.10.0"

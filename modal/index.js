@@ -36,7 +36,9 @@ ModalGenerator.prototype.askFor = function askFor() {
 
 ModalGenerator.prototype.files = function files() {
 
-    this.ctrlname = _.camelize(_.classify(this.name)) + 'Ctrl';
+    this.name = cgUtils.createName(this, this.name);
+    this.className = cgUtils.createClassName(this, this.name);
+    this.codeName = this.name + 'Ctrl';
 
     cgUtils.processTemplates(this.name,this.dir,'modal',this,null,null,this.module);
 
@@ -47,7 +49,7 @@ ModalGenerator.prototype.files = function files() {
         console.log('');
         console.log('  $modal.open({');
         console.log('      templateUrl: \'' + path.join(this.dir,this.name + '.html') + '\',');
-        console.log('      controller: \''+ this.ctrlname +'\'');
+        console.log('      controller: \''+ this.codeName +'\'');
         console.log('  }).result.then(function(result){');
         console.log('      //do something with the result');
         console.log('  });');

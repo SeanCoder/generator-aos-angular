@@ -1,13 +1,12 @@
 /**
  * @ngdoc service
- * @name <%= _.camelize(name) %>
+ * @name <%= appname %>.<%= codeName %>
  *
  * @description
  * TODO - Complete this description with full details about this service.
  */
-angular.module('<%= appname %>').factory('<%= _.camelize(name) %>',function() {
+angular.module('<%= appname %>').service('<%= codeName %>',function() {
 
-    var <%= _.camelize(name) %> = {};
+    // AngularJS will instantiate a singleton by calling "new" on this function
 
-    return <%= _.camelize(name) %>;
 });

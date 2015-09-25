@@ -1,11 +1,11 @@
 /**
  * @ngdoc modukle
- * @name <%= _.camelize(name) %>
+ * @name <%= codeName %>
  *
  * @description
  * TODO - Complete this description with full details.
  */
-angular.module('<%= _.camelize(name) %>', [
+angular.module('<%= codeName %>', [
     'ui.bootstrap',
     'ui.utils',
     '<%= routerModuleName %>',
@@ -16,13 +16,13 @@ angular.module('<%= _.camelize(name) %>', [
 ]);
 
 <% if (!uirouter) { %>
-angular.module('<%= _.camelize(name) %>').config(function($routeProvider) {
+angular.module('<%= codeName %>').config(function($routeProvider) {
 
     /* Add New Routes Above */
 
 });
 <% } %><% if (uirouter) { %>
-angular.module('<%= _.camelize(name) %>').config(function($stateProvider) {
+angular.module('<%= codeName %>').config(function($stateProvider) {
 
     /* Add New States Above */
 

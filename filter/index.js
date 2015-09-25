@@ -29,7 +29,7 @@ FilterGenerator.prototype.askFor = function askFor() {
 
     this.prompt(prompts, function (props) {
         if (props.name) {
-            this.name = cgUtils.prefixName(props.name);
+            this.name = props.name;
         }
         cgUtils.askForModuleAndDir('filter', this, false, cb);
     }.bind(this));
@@ -38,6 +38,9 @@ FilterGenerator.prototype.askFor = function askFor() {
 };
 
 FilterGenerator.prototype.files = function files() {
+
+    this.name = cgUtils.createName(this, this.name);
+    this.codeName = this.name;
 
     cgUtils.processTemplates(this.name, this.dir, 'filter', this, null, null, this.module);
 

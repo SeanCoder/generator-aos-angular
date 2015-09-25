@@ -29,7 +29,7 @@ ConstantGenerator.prototype.askFor = function askFor() {
 
     this.prompt(prompts, function (props) {
         if (props.name) {
-            this.name = cgUtils.prefixName(props.name);
+            this.name = props.name;
         }
         cgUtils.askForModuleAndDir('constant', this, false, cb);
     }.bind(this));
@@ -38,6 +38,9 @@ ConstantGenerator.prototype.askFor = function askFor() {
 };
 
 ConstantGenerator.prototype.files = function files() {
+
+    this.name = cgUtils.createName(this, this.name);
+    this.codeName = this._.dasherize(name).toUpperCase();
 
     cgUtils.processTemplates(this.name, this.dir, 'constant', this, null, null, this.module);
 

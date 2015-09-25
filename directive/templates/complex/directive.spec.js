@@ -1,6 +1,6 @@
-describe('<%= _.camelize(name) %>', function () {
+describe('<%= codeName %>', function () {
 
-    beforeEach(module('<%= appname %>'));
+    beforeEach(module('templates', '<%= appname %>'));
 
     var scope, compile;
 
@@ -11,7 +11,7 @@ describe('<%= _.camelize(name) %>', function () {
 
     it('should compile correctly.', function () {
         // Add attributes that is required by your component
-        var compiledElement = angular.element('<<%= _.dasherize(_.camelize(name)) %> ></<%= _.dasherize(_.camelize(name)) %>>');
+        var compiledElement = angular.element('<<%= elementName %> data-attr1="value1" data-attr2="value2"></<%= elementName %>>');
 
         // Configure scope here if required
         // Ex. scope.label = 'Test';
@@ -19,7 +19,7 @@ describe('<%= _.camelize(name) %>', function () {
         compile(compiledElement)(scope);
         scope.$digest();
 
-        expect($(compiledElement).find('.<%= _.dasherize(_.camelize(name)) %>')).toHaveLength(1);
+        expect($(compiledElement).find('.<%= className %>')).toHaveLength(1);
     });
 
     it('should ...', function () {
