@@ -23,6 +23,7 @@ module.exports = function (config) {
         files: [
             // bower:js
             'bower_components/jquery/dist/jquery.js',
+            'app/bower_components/jasmine-jquery/lib/jasmine-jquery.js',
             'bower_components/angular/angular.js',
             'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js',
             'bower_components/angular-animate/angular-animate.js',
@@ -49,6 +50,7 @@ module.exports = function (config) {
         },
 
         ngHtml2JsPreprocessor: {
+            stripPrefix: 'app/',
             moduleName: 'templates'
         },
 
