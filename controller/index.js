@@ -32,6 +32,7 @@ ControllerGenerator.prototype.askFor = function askFor() {
             this.name = props.name;
         }
         cgUtils.askForModuleAndDir('controller', this, false, cb);
+
     }.bind(this));
 
 

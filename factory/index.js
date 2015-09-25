@@ -25,13 +25,13 @@ ServiceGenerator.prototype.askFor = function askFor() {
 
     var prompts = [];
 
-    cgUtils.addNamePrompt(this, prompts, 'service');
+    cgUtils.addNamePrompt(this, prompts, 'factory');
 
     this.prompt(prompts, function (props) {
         if (props.name) {
             this.name = props.name;
         }
-        cgUtils.askForModuleAndDir('service', this, false, cb);
+        cgUtils.askForModuleAndDir('factory', this, false, cb);
     }.bind(this));
 
 };

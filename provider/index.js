@@ -25,13 +25,13 @@ ServiceGenerator.prototype.askFor = function askFor() {
 
     var prompts = [];
 
-    cgUtils.addNamePrompt(this, prompts, 'service');
+    cgUtils.addNamePrompt(this, prompts, 'provider');
 
     this.prompt(prompts, function (props) {
         if (props.name) {
             this.name = props.name;
         }
-        cgUtils.askForModuleAndDir('service', this, false, cb);
+        cgUtils.askForModuleAndDir('provider', this, false, cb);
     }.bind(this));
 
 };
@@ -41,6 +41,6 @@ ServiceGenerator.prototype.files = function files() {
     this.name = cgUtils.createName(this, this.name);
     this.codeName = this.name;
 
-    cgUtils.processTemplates(this.name, this.dir, 'factory', this, null, null, this.module);
+    cgUtils.processTemplates(this.name, this.dir, 'provider', this, null, null, this.module);
 
 };
