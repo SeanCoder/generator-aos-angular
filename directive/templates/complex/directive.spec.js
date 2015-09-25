@@ -20,6 +20,7 @@ describe('<%= codeName %>', function () {
         scope.$digest();
 
         expect($(compiledElement).find('.<%= className %>')).toHaveLength(1);
+        expect(compiledElement).toHaveClass('<%= className %>');
     });
 
     it('should ...', function () {

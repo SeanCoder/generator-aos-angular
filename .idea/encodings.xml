@@ -5,7 +5,6 @@
     <file url="file://$PROJECT_DIR$/app/index.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/templates/skeleton/Gruntfile.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/templates/skeleton/app/scripts/app.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/templates/skeleton/app/scripts/app.routes.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/templates/skeleton/app/scripts/app.scss" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/templates/skeleton/app/styles/main.scss" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/templates/skeleton/bower.json" charset="UTF-8" />
@@ -20,7 +19,6 @@
     <file url="file://$PROJECT_DIR$/controller/templates/controller.spec.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/decorator/index.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/decorator/templates/decorater.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/decorator/templates/directive.spec.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/directive/index.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/directive/templates/complex/directive.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/directive/templates/complex/directive.js" charset="UTF-8" />
