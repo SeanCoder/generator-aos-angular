@@ -10,7 +10,7 @@ var fs = require('fs');
 _.str = require('underscore.string');
 _.mixin(_.str.exports());
 
-var ServiceGenerator = module.exports = function ServiceGenerator(args, options, config) {
+var FactoryGenerator = module.exports = function FactoryGenerator(args, options, config) {
 
     cgUtils.getNameArg(this, args);
 
@@ -18,9 +18,9 @@ var ServiceGenerator = module.exports = function ServiceGenerator(args, options,
 
 };
 
-util.inherits(ServiceGenerator, yeoman.generators.Base);
+util.inherits(FactoryGenerator, yeoman.generators.Base);
 
-ServiceGenerator.prototype.askFor = function askFor() {
+FactoryGenerator.prototype.askFor = function askFor() {
     var cb = this.async();
 
     var prompts = [];
@@ -36,7 +36,7 @@ ServiceGenerator.prototype.askFor = function askFor() {
 
 };
 
-ServiceGenerator.prototype.files = function files() {
+FactoryGenerator.prototype.files = function files() {
 
     this.name = cgUtils.createName(this, this.name);
     this.codeName = this.name;

@@ -24,24 +24,8 @@ util.inherits(ModuleGenerator, yeoman.generators.Base);
 
 ModuleGenerator.prototype.askFor = function askFor() {
     var cb = this.async();
-    var that = this;
 
-    var prompts = [
-        {
-            name: 'dir',
-            message: 'Where would you like to create the module (must specify a subdirectory)?',
-            default: function (data) {
-                return path.join(that.name || data.name, '/');
-            },
-            validate: function (value) {
-                value = _.str.trim(value);
-                if (_.isEmpty(value) || value[0] === '/' || value[0] === '\\') {
-                    return 'Please enter a subdirectory.';
-                }
-                return true;
-            }
-        }
-    ];
+    var prompts = [];
 
     cgUtils.addNamePrompt(this, prompts, 'module');
 
@@ -49,16 +33,16 @@ ModuleGenerator.prototype.askFor = function askFor() {
         if (props.name) {
             this.name = props.name;
         }
-        this.dir = props.dir;
-        cb();
+        cgUtils.askForModuleAndDir('module', this, false, cb);
     }.bind(this));
+
 };
 
 ModuleGenerator.prototype.files = function files() {
     var appname = require(process.cwd() + '/package.json').name;
 
+    this.dir = path.join(this.dir, this.name, '/');
     this.name = cgUtils.createModuleName(this, appname, this.dir, cgUtils.createName(this, this.name, true));
-    this.dir = path.join(cgUtils.ROOT_SCRIPTS_DIRECTORY, this.dir, '/');
     this.codeName = this.name;
 
 

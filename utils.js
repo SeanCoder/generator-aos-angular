@@ -166,7 +166,7 @@ exports.askForModule = function (type, that, cb) {
             message: 'Which module would you like to place the new ' + type + '?',
             type: 'list',
             choices: choices,
-            default: 1
+            default: 0
         }
     ];
 
@@ -197,7 +197,7 @@ exports.askForDir = function (type, that, module, ownDir, cb) {
 
     var useTypeDirs = that.config.get('useTypeDirectories');
     var defaultDir = '';
-    if (module.primary || useTypeDirs) {
+    if (useTypeDirs) {
         var configedDir = that.config.get(type + 'Directory');
         if (!configedDir) {
             configedDir = '.';
@@ -276,8 +276,10 @@ exports.askForDir = function (type, that, module, ownDir, cb) {
 };
 
 exports.askForModuleAndDir = function (type, that, ownDir, cb) {
-    exports.askForModule(type, that, function (module) {
-        exports.askForDir(type, that, module, ownDir, cb);
+    setTimeout(function() {
+        exports.askForModule(type, that, function (module) {
+            exports.askForDir(type, that, module, ownDir, cb);
+        });
     });
 };
 

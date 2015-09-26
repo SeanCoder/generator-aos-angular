@@ -40,7 +40,8 @@ ConstantGenerator.prototype.askFor = function askFor() {
 ConstantGenerator.prototype.files = function files() {
 
     this.name = cgUtils.createName(this, this.name);
-    this.codeName = this._.dasherize(name).toUpperCase();
+    this.codeName = this._.dasherize(this.name);
+    this.codeName = this.codeName.toUpperCase().replace(/[-]/g, '_');;
 
     cgUtils.processTemplates(this.name, this.dir, 'constant', this, null, null, this.module);
 

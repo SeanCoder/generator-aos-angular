@@ -10,7 +10,7 @@ var fs = require('fs');
 _.str = require('underscore.string');
 _.mixin(_.str.exports());
 
-var DirectiveGenerator = module.exports = function DirectiveGenerator(args, options, config) {
+var DecoratorGenerator = module.exports = function DecoratorGenerator(args, options, config) {
 
     cgUtils.getNameArg(this, args);
 
@@ -18,9 +18,9 @@ var DirectiveGenerator = module.exports = function DirectiveGenerator(args, opti
 
 };
 
-util.inherits(DirectiveGenerator, yeoman.generators.Base);
+util.inherits(DecoratorGenerator, yeoman.generators.Base);
 
-DirectiveGenerator.prototype.askFor = function askFor() {
+DecoratorGenerator.prototype.askFor = function askFor() {
     var cb = this.async();
 
     var prompts = [{
@@ -42,7 +42,7 @@ DirectiveGenerator.prototype.askFor = function askFor() {
 
 };
 
-DirectiveGenerator.prototype.files = function files() {
+DecoratorGenerator.prototype.files = function files() {
     var configName = 'directiveSimpleTemplates';
     var defaultDir = 'templates/simple';
     if (this.needpartial) {
