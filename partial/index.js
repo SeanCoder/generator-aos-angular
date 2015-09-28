@@ -48,6 +48,7 @@ PartialGenerator.prototype.files = function files() {
     this.name = cgUtils.createName(this, this.name);
     this.codeName = this.name + 'Ctrl';
     this.className = cgUtils.createClassName(this, this.name);
+    this.uirouter = this.config.get('uirouter');
 
     cgUtils.processTemplates(this.name, this.dir, 'partial', this, null, null, this.module);
 

@@ -109,7 +109,17 @@ exports.injectRoute = function (moduleFile, uirouter, name, route, routeUrl, tha
     routeUrl = routeUrl.replace(/\\/g, '/');
 
     if (uirouter) {
-        var code = '$stateProvider.state(\'' + name + '\', {\n        url: \'' + route + '\',\n        templateUrl: \'' + routeUrl + '\'\n    });';
+        var codeLines = [];
+        codeLines.push('$stateProvider.state(\'' + name + '\', {');
+        codeLines.push('        url: \'' + route + '\',');
+        codeLines.push('        controller: \'' + that.codeName + '\',');
+        codeLines.push('        abstract: false,');
+        codeLines.push('        templateUrl: \'' + routeUrl + '\',');
+        codeLines.push('        resolve: {');
+        codeLines.push('            // TODO Add any properties that need to be resolved here and which are passed to the controller. Or remove this block.');
+        codeLines.push('        }');
+        codeLines.push('    });');
+        var code = codeLines.join('\n');
         exports.addToFile(moduleFile, code, exports.STATE_MARKER);
     } else {
         exports.addToFile(moduleFile, '$routeProvider.when(\'' + route + '\',{templateUrl: \'' + routeUrl + '\'});', exports.ROUTE_MARKER);
