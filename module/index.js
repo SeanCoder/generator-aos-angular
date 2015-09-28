@@ -58,7 +58,7 @@ ModuleGenerator.prototype.files = function files() {
     if (!modules) {
         modules = [];
     }
-    modules.push({name: this.codeName, file: path.join(this.dir, this.name + '.' + type + '.js')});
+    modules.push({name: this.codeName, file: path.join(this.dir, exports.createFilename(this, this.name, type, '.js'))});
     this.config.set('modules', modules);
     this.config.save();
 };

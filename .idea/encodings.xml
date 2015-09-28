@@ -4,6 +4,8 @@
     <file url="file://$PROJECT_DIR$/CUSTOMIZING.md" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/index.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/templates/skeleton/Gruntfile.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/templates/skeleton/app/languages/en-US/common.lang.json" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/templates/skeleton/app/languages/fr-FR/common.lang.json" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/templates/skeleton/app/scripts/app.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/templates/skeleton/app/scripts/app.scss" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/templates/skeleton/app/styles/main.scss" charset="UTF-8" />
@@ -33,6 +35,7 @@
     <file url="file://$PROJECT_DIR$/filter/templates/filter.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/filter/templates/filter.spec.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/modal/index.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modal/templates/languages/en-US/modal.lang.json" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/modal/templates/modal.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/modal/templates/modal.spec.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/module/index.js" charset="UTF-8" />
