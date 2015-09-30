@@ -1,59 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
-    <file url="file://$PROJECT_DIR$/CUSTOMIZING.md" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/index.js" charset="UTF-8" />
+  <component name="Encoding">
     <file url="file://$PROJECT_DIR$/app/templates/skeleton/Gruntfile.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/templates/skeleton/app/languages/en-US/common.lang.json" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/templates/skeleton/app/languages/fr-FR/common.lang.json" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/templates/skeleton/app/scripts/app.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/templates/skeleton/app/scripts/app.scss" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/templates/skeleton/app/styles/main.scss" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/templates/skeleton/bower.json" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/templates/skeleton/karma.conf.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/templates/skeleton/package.json" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/templates/skeleton/test/readme.txt" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/constant/index.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/constant/templates/constant.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/constant/templates/constant.spec.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/controller/index.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/controller/templates/controller.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/controller/templates/controller.spec.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/decorator/index.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/decorator/templates/decorater.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/directive/index.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/directive/templates/complex/directive.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/directive/templates/complex/directive.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/directive/templates/complex/directive.scss" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/directive/templates/complex/directive.spec.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/directive/templates/simple/directive.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/directive/templates/simple/directive.spec.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/factory/index.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/factory/templates/factory.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/factory/templates/factory.spec.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/filter/index.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/filter/templates/filter.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/filter/templates/filter.spec.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/modal/index.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/modal/templates/languages/en-US/modal.lang.json" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/modal/templates/modal.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/modal/templates/modal.spec.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/module/index.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/module/templates/module.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/package.json" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/partial/index.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/partial/templates/partial.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/partial/templates/partial.scss" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/partial/templates/partial.spec.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/provider/index.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/provider/templates/provider.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/provider/templates/provider.spec.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/rebuild/index.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/service/index.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/service/templates/service.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/utils.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/value/index.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/value/templates/value.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/value/templates/value.spec.js" charset="UTF-8" />
   </component>
 </project>

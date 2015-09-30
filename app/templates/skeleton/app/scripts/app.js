@@ -9,6 +9,7 @@ angular.module('<%= appname %>', [
     'ui.bootstrap',
     'ui.utils',
     '<%= routerModuleName %>',
+    'ngAria',
     'ngAnimate',
     'ngLocalize',
     'ngLocalize.Config',
