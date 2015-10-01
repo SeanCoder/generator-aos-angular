@@ -66,10 +66,19 @@ CgangularGenerator.prototype.askFor = function askFor() {
         name: 'appname',
         message: 'What would you like the angular app/module name to be?',
         default: path.basename(process.cwd())
+    }, {
+        name: 'prefix',
+        message: 'Prefix to add to all names?',
+        default: cgUtils.PREFIX,
+        validate: function (input) {
+            return true;
+        }
     }];
 
     this.prompt(prompts, function (props) {
-        this.appname = this._.camelize(this._.slugify(this._.humanize(this.appname)));
+        this.appname = this._.camelize(this._.slugify(this._.humanize(props.appname)));
+        this.prefix = props.prefix;
+        this.config.set('prefix', this.prefix);
         cb();
     }.bind(this));
 };
@@ -84,14 +93,6 @@ CgangularGenerator.prototype.askForUiRouter = function askFor() {
             message: 'Which router would you like to use?',
             default: 1,
             choices: ['Standard Angular Router', 'Angular UI Router']
-        },
-        {
-            name: 'prefix',
-            message: 'Prefix to add to all names?',
-            default: cgUtils.PREFIX,
-            validate: function (input) {
-                return true;
-            }
         }];
 
     this.prompt(prompts, function (props) {
@@ -106,9 +107,7 @@ CgangularGenerator.prototype.askForUiRouter = function askFor() {
             this.routerModuleName = 'ngRoute';
             this.routerViewDirective = 'ng-view';
         }
-        this.prefix = props.prefix;
         this.config.set('uirouter', this.uirouter);
-        this.config.set('prefix', this.prefix);
         cb();
     }.bind(this));
 };
