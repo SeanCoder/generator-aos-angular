@@ -42,8 +42,9 @@ ModuleGenerator.prototype.files = function files() {
     var appname = require(process.cwd() + '/package.json').name;
 
     this.dir = path.join(this.dir, this.name, '/');
-    this.name = cgUtils.createModuleName(this, appname, this.dir, cgUtils.createName(this, this.name, true));
-    this.codeName = this.name;
+    var name = this.name;
+    this.name = this.name = cgUtils.createName(this, name);
+    this.codeName = cgUtils.createModuleName(this, appname, this.dir, name);
 
 
     var module = cgUtils.getParentModule(path.join(this.dir, '..'));

@@ -37,9 +37,25 @@ exports.addToFile = function (filename, lineToAdd, beforeMarker) {
 };
 
 exports.createFilename = function (that, name, type, optExtension) {
-    var name = [_.str.dasherize(name), type.toLowerCase()];
-    if (optExtension && optExtension.length) {
-        name.push(optExtension);
+    // Remove the prefix, makes the name too long
+    var prefix = that.config.get('prefix') || exports.PREFIX;
+    if (prefix && prefix.length) {
+        if (_.startsWith(name.toLowerCase(), prefix.toLowerCase())) {
+            name = name.substring(prefix.length).trim();
+        }
+        name = _.str.dasherize(name);
+        // Remove any starting and ending dashes
+        while (_.startsWith(name, '-') && name.length > 1) {
+            name = name.substring(1);
+        }
+        while (_.endsWith(name, '-') && name.length > 2) {
+            name = name.substring(0, name.length - 2);
+        }
+
+        var name = [name, type.toLowerCase()];
+        if (optExtension && optExtension.length) {
+            name.push(optExtension);
+        }
     }
 
     return name.join('.');
@@ -364,7 +380,7 @@ exports.createName = function (that, name, ignorePrefix) {
 };
 
 exports.createClassName = function (that, name) {
-    return name;
+    return _.dasherize(name).toLowerCase();
 };
 
 exports.createElementName = function (that, name) {
@@ -373,6 +389,7 @@ exports.createElementName = function (that, name) {
 
 exports.createModuleName = function (that, appname, dir, name) {
     // Get rid of duplicates
+    name = _.camelize(name);
     var nameLowercase = name.toLowerCase();
     dir = dir.replace(/\\/g, '/').replace(/[\/]{2,}/g, "/");
     var dirNames = _.filter(dir.split('/'), function (item) {
@@ -380,7 +397,8 @@ exports.createModuleName = function (that, appname, dir, name) {
             return false;
         }
         var itemLowercase = item.toLowerCase();
-        return (itemLowercase !== nameLowercase && itemLowercase !== 'app' && itemLowercase !== 'scripts')
+        var itemCamelized =  _.camelize(item);
+        return (itemCamelized !== name && itemLowercase !== 'app' && itemLowercase !== 'scripts')
     });
 
     if (dirNames && dirNames.length) {
