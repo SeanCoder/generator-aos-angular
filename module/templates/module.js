@@ -1,5 +1,5 @@
 /**
- * @ngdoc modukle
+ * @ngdoc module
  * @name <%= codeName %>
  *
  * @description

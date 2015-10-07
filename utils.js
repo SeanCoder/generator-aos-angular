@@ -61,7 +61,7 @@ exports.createFilename = function (that, name, type, optExtension) {
     return name.join('.');
 };
 
-exports.processTemplates = function (name, dir, type, that, defaultDir, configName, module) {
+exports.processTemplates = function (name, dir, type, that, defaultDir, configName, module, excludeStyle) {
 
     if (!defaultDir) {
         defaultDir = 'templates'
@@ -74,10 +74,15 @@ exports.processTemplates = function (name, dir, type, that, defaultDir, configNa
     if (that.config.get(configName)) {
         templateDirectory = path.join(process.cwd(), that.config.get(configName));
     }
+    var sass = that.config.get('sass');
     _.chain(fs.readdirSync(templateDirectory))
         .filter(function (template) {
-            var css = that.config.sass ? '.scss' : '.less';
-            return template[0] !== '.' && template.indexOf(css) === -1;
+            var cssToIgnore = !sass ? '.scss' : '.less';
+            var css = sass ? '.scss' : '.less';
+            if (excludeStyle && template.indexOf(css) !== -1) {
+                return false;
+            }
+            return template[0] !== '.' && template.indexOf(cssToIgnore) === -1;
         })
         .each(function (template) {
             var filename = exports.createFilename(that, name, type);

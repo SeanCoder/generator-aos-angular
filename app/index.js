@@ -62,18 +62,19 @@ util.inherits(CgangularGenerator, yeoman.generators.Base);
 CgangularGenerator.prototype.askFor = function askFor() {
     var cb = this.async();
 
-    var prompts = [{
-        name: 'appname',
-        message: 'What would you like the angular app/module name to be?',
-        default: path.basename(process.cwd())
-    }, {
-        name: 'prefix',
-        message: 'Prefix to add to all names?',
-        default: cgUtils.PREFIX,
-        validate: function (input) {
-            return true;
-        }
-    }];
+    var prompts = [
+        {
+            name: 'appname',
+            message: 'What would you like the angular app/module name to be?',
+            default: path.basename(process.cwd())
+        }, {
+            name: 'prefix',
+            message: 'Prefix to add to all names?',
+            default: cgUtils.PREFIX,
+            validate: function (input) {
+                return true;
+            }
+        }];
 
     this.prompt(prompts, function (props) {
         this.appname = this._.camelize(this._.slugify(this._.humanize(props.appname)));

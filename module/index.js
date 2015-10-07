@@ -29,9 +29,17 @@ ModuleGenerator.prototype.askFor = function askFor() {
 
     cgUtils.addNamePrompt(this, prompts, 'module');
 
+    prompts.push({
+        name: 'includeSass',
+        type: 'confirm',
+        message: 'Would you like to include a Sass (.scss) file for this module?',
+        default: false
+    });
+
     this.prompt(prompts, function (props) {
         if (props.name) {
             this.name = props.name;
+            this.includeSass = props.includeSass;
         }
         cgUtils.askForModuleAndDir('module', this, false, cb);
     }.bind(this));
@@ -41,9 +49,9 @@ ModuleGenerator.prototype.askFor = function askFor() {
 ModuleGenerator.prototype.files = function files() {
     var appname = require(process.cwd() + '/package.json').name;
 
-    this.dir = path.join(this.dir, this.name, '/');
+    this.dir = path.join(this.dir, this._.dasherize(this._.camelize(this.name)), '/');
     var name = this.name;
-    this.name = this.name = cgUtils.createName(this, name);
+    this.name = cgUtils.createName(this, name);
     this.codeName = cgUtils.createModuleName(this, appname, this.dir, name);
 
 
@@ -53,7 +61,7 @@ ModuleGenerator.prototype.files = function files() {
     this.log.writeln(chalk.green(' updating') + ' %s', path.basename(module.file));
 
     var type = 'module';
-    cgUtils.processTemplates(this.name, this.dir, type, this, null, null, module);
+    cgUtils.processTemplates(this.name, this.dir, type, this, null, null, module, !this.includeSass);
 
     var modules = this.config.get('modules');
     if (!modules) {
