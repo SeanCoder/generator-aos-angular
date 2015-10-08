@@ -1,0 +1,9 @@
+{
+    "<%= prefixUpperCase %>_YES": "Yes",
+    "<%= prefixUpperCase %>_NO": "No",
+    "<%= prefixUpperCase %>_OK": "Ok",
+    "<%= prefixUpperCase %>_CANCEL": "Cancel",
+    "<%= prefixUpperCase %>_HOME": "Home",
+    "<%= prefixUpperCase %>_ABOUT": "About",
+    "<%= prefixUpperCase %>_CONTACT": "Contact"
+}

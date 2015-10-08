@@ -11,9 +11,7 @@ angular.module('<%= appname %>', [
     '<%= routerModuleName %>',
     'ngAria',
     'ngAnimate',
-    'ngLocalize',
-    'ngLocalize.Config',
-    'ngLocalize.InstalledLanguages'
+    'pascalprecht.translate'
 ]);
 
 <% if (!uirouter) { %>
@@ -46,23 +44,10 @@ angular.module('<%= appname %>').run(function($rootScope) {
 
 });
 
-angular.module('<%= appname %>').value('localeConf', {
-    basePath: 'languages',
-    defaultLocale: 'en-US',
-    sharedDictionary: 'common',
-    fileExtension: '.lang.json',
-    persistSelection: true,
-    cookieName: 'COOKIE_LOCALE_LANG',
-    observableAttrs: new RegExp('^data-(?!ng-|i18n)'),
-    delimiter: '::'
-});
-
-angular.module('<%= appname %>').value('localeSupported', [
-    'en-US'
-    /* Add additional locales here */
-]);
-
-angular.module('<%= appname %>').value('localeFallbacks', {
-    'en': 'en-US'
-    /* Add additional fallback locales here */
+angular.module('<%= appname %>').config(function($translateProvider) {
+    $translateProvider.useStaticFilesLoader({
+        prefix: 'languages/',
+        suffix: '.json'
+    });
+    $translateProvider.preferredLanguage('en-US');
 });

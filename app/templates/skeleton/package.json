@@ -37,7 +37,6 @@
         "karma-firefox-launcher": "*",
         "karma-chrome-launcher": "*",
         "time-grunt": "^1.0.0",
-        "grunt-angular-localization": "^1.0.1",
         "phantomjs": "*"
     },
     "engines": {

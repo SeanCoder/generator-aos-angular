@@ -24,6 +24,7 @@ module.exports = function (grunt) {
     // Configurable paths for the application
     var appConfig = {
         app: bower.appPath || 'app',
+        module: bower.name || '',
         styles: 'styles',           // Appended to the app folder or temp during build
         images: 'images',
         dist: 'dist',
@@ -308,8 +309,8 @@ module.exports = function (grunt) {
         // uglify: {
         //   dist: {
         //     files: {
-        //       '<%= yeoman.dist %>/scripts/<%= appname %>.min.js': [
-        //         '<%= yeoman.dist %>/scripts/<%= appname %>.min.js'
+        //       '<%= yeoman.dist %>/scripts/<%= yeoman.app %>.min.js': [
+        //         '<%= yeoman.dist %>/scripts/<%= yeoman.app %>.min.js'
         //       ]
         //     }
         //   }
@@ -360,9 +361,9 @@ module.exports = function (grunt) {
         ngtemplates: {
             dist: {
                 options: {
-                    module: '<%= appname %>',
+                    module: '<%= yeoman.module %>',
                     htmlmin: '<%= htmlmin.dist.options %>',
-                    usemin: 'scripts/<%= appname %>.js'
+                    usemin: 'scripts/<%= yeoman.app %>.js'
                 },
                 cwd: '<%= yeoman.app %>',
                 src: 'scripts/{,*/}*.html',
@@ -512,6 +513,7 @@ module.exports = function (grunt) {
         'useminPrepare',
         'concurrent:dist',
         'autoprefixer',
+        'jsonAngularTranslate',
         'ngtemplates',
         'concat',
         'ngAnnotate',
@@ -530,6 +532,7 @@ module.exports = function (grunt) {
         'useminPrepare',
         'concurrent:dist',
         'autoprefixer',
+        'jsonAngularTranslate',
         'ngtemplates',
         'concat',
         'ngAnnotate',

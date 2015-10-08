@@ -79,6 +79,7 @@ CgangularGenerator.prototype.askFor = function askFor() {
     this.prompt(prompts, function (props) {
         this.appname = this._.camelize(this._.slugify(this._.humanize(props.appname)));
         this.prefix = props.prefix;
+        this.prefixUpperCase = props.prefix.toUpperCase();
         this.config.set('prefix', this.prefix);
         cb();
     }.bind(this));
