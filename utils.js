@@ -9,7 +9,7 @@ var finder = require('find-files');
 
 
 exports.JS_MARKER = "<!-- Add New Component JS Above -->";
-exports.PREFIX = "dell";
+exports.PREFIX = "aos";
 exports.LESS_MARKER = "/* Add Component LESS Above */";
 exports.SASS_MARKER = "/* Add Component SASS Above */";
 

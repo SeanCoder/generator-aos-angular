@@ -1,13 +1,13 @@
 {
-    "name": "generator-dell-angular",
+    "name": "generator-aos-angular",
     "version": "3.2.1",
     "description": "Yeoman Generator for Enterprise Angular projects. Forked from cg-angular",
     "keywords": [
         "yeoman-generator",
         "angular"
     ],
-    "homepage": "https://github.com/SeanCoder/generator-dell-angular",
-    "bugs": "https://github.com/SeanCoder/generator-dell-angular/issues",
+    "homepage": "https://github.com/SeanCoder/generator-aos-angular",
+    "bugs": "https://github.com/SeanCoder/generator-aos-angular/issues",
     "author": {
         "name": "Sean Scott",
         "email": "seandscott@gmail.com",
@@ -16,7 +16,7 @@
     "main": "app/index.js",
     "repository": {
         "type": "git",
-        "url": "git://github.com/SeanCoder/generator-dell-angular.git"
+        "url": "git://github.com/SeanCoder/generator-aos-angular.git"
     },
     "scripts": {
         "test": "mocha"

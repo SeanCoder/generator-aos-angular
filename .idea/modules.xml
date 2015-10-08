@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/generator-dell-angular.iml" filepath="$PROJECT_DIR$/.idea/generator-dell-angular.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/generator-aos-angular.iml" filepath="$PROJECT_DIR$/.idea/generator-aos-angular.iml" />
     </modules>
   </component>
 </project>
